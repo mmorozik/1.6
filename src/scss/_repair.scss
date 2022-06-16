@@ -1,0 +1,162 @@
+
+@media (min-width: $w-scrin-320) {
+
+    .swiper {
+        width: 300px;
+        margin-bottom: $indent-24;
+        height: 120px;
+        transition: .4s;
+    }
+
+    .swiper--big {
+        height: 228px;
+    }
+
+    .swiper-pagination {
+        top: 76px;
+    }
+
+    .swiper-pagination--big {
+        top: 200px;
+    }
+
+    .swiper-slide {
+        margin-right: $indent-16;
+    }
+
+    .button-more-logos,
+    .button-more-type {
+        display: none;
+    }
+
+    .logos-wrapper {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+        width: 240px;
+        border: 2px solid #EAEAEA;
+        border-radius: 6px;
+        padding: 0 16px;
+        margin-right: $indent-16;
+    }
+
+    .type-wrapper {
+        position: relative;
+        padding: $indent-16;
+        height: 160px;
+        width: 240px;
+        border: 2px solid #EAEAEA;
+        border-radius: 6px;
+        margin-right: $indent-16;
+
+
+            img {
+                position: absolute;
+                right: $indent-16;
+                bottom: $indent-16;
+            }
+            
+        
+            span {
+                font-size: 16px;
+                line-height: 24px;    
+                letter-spacing: -0.2px;
+                font-weight: 500;
+            }
+        
+    }
+}
+
+@media (min-width: $w-scrin-768) {
+
+
+    .repair {
+
+        &__title {
+            padding: $indent-16 $indent-24;
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        height: 170px;
+    }
+
+    .swiper-logos--active {
+        height: 340px;
+    }
+
+    .swiper-type--active {
+        height: 515px;
+    }
+
+    .repair-swiper-wrapper {
+        display: flex;
+        flex-wrap: wrap;    
+        margin-left: $indent-24;
+    }
+
+    .repair-swiper-slide {
+        width: 32%;
+    }
+
+    .logos-wrapper {
+        margin-bottom: $indent-16;
+        width: 224px;
+    }
+
+    .type-wrapper {
+        width: 224px;
+        margin-bottom: $indent-16;
+    }
+
+    .swiper-pagination {
+        display: none;
+    }
+
+    .button-more {
+        display: flex;
+        margin-left: $indent-32;
+        margin-bottom: $indent-32;
+    }
+    
+}
+
+@media (min-width: $w-scrin-1020) {
+
+    .repair {
+        &__title {
+            padding: $indent-16 $indent-32;
+        }
+    }
+
+    .button-more {
+        margin-bottom: 50px;
+    }
+
+    .type-wrapper {
+        width: 98%;
+    }
+
+    .logos-wrapper {
+        width: 98%;
+    }
+
+}
+
+@media (min-width: $w-scrin-1366) {
+    
+    
+    .repair-swiper-slide {
+        width: 24%;
+    }
+
+    .swiper-logos--active {
+        height: 250px;
+    }
+
+    .swiper-type--active {
+        height: 340px;
+    }
+}
