@@ -1,0 +1,129 @@
+@import '_variables';
+@import '_font';
+@import '_button';
+
+html,
+body {
+    height: 100%;
+    font-size: $f-size-main;
+    font-family: $main-font-family;
+    line-height: 24px;
+}
+html {
+    box-sizing: border-box;
+  }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.wrapper {
+    display: flex;  
+    // display: none; //УДАЛИТЬ!!
+
+    &--relative {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+        width: 100%;
+
+
+        @media (min-width: $w-scrin-1020) {
+            padding: 32px 30px 9px $nav-weight-1020;
+        }
+    }
+}
+
+.main {
+    margin-top: 80px;
+
+    @media (min-width: $w-scrin-1020) {
+        margin-top: 0; 
+    }
+}
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: $f-color;
+}
+
+.display-none {
+    display: none;
+}
+
+.wrap {
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+    &--horizonte {
+        display: flex;
+        flex-grow: 1;
+    }
+}
+
+.page-is-active {
+    
+    
+    span {
+        color: $gray-color;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        background-color: $nav-color;
+        width: 4px;
+        height: 25px;
+        display: inline-block;
+        transform: translate(0, -3px);
+        border-radius: 0 7px 7px 0;
+        transition: 1s;
+    }
+}
+
+.page-title {
+    padding: $indent-16;
+    border-top: 1px solid $w-b-color;
+    margin: 0;
+
+        h2 {
+            margin: 0;
+            font-size: 16px;     
+            text-transform: uppercase;
+            font-weight: normal;
+            letter-spacing: -0.2px;
+            color: $gray-color;
+        }
+}
+
+.nds {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+
+    h4 {
+        font-weight: 500;
+        font-size: $f-size-main;
+        margin: 0;
+    }
+}
+
+
+@import '_icon';
+@import '_nav';
+@import '_header';
+@import '_info';
+@import '_repair';
+@import '_price';
+@import '_footer';
+@import '_form';
+@import '_mobal';
+@import '_mobal-call';

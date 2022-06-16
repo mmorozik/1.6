@@ -1,0 +1,33 @@
+.form-sub-title {
+    font-size: 14px;
+    line-height: 16px;
+    color: $gray-color;
+
+    a {
+        color: $pink-color;
+    }
+}
+
+.form-input {
+    margin-bottom: $indent-16;
+    border: 1px solid $ea-color;
+    padding: 12px $indent-16;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.form-title {
+    margin-bottom: $indent-24;
+}
+
+.form-close {
+
+    @media (min-width: $w-scrin-320) {
+        margin-bottom: 40px;
+    }
+
+    @media (min-width: $w-scrin-1020) {
+        position: absolute;
+        left: -65px;
+    }
+}
