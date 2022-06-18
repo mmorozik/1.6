@@ -1,7 +1,7 @@
 import '../scss/style.scss';
+import Swiper, { Pagination } from 'swiper';
 //Свайпер
 
-const breakpoint = window.matchMedia( '(min-width: 768px)' );
 const swiperSlide = document.querySelectorAll('.repair-swiper-slide');
 const priceSlide = document.querySelectorAll('.price-swiper-slide');
 const swiperWrapper = document.querySelectorAll('.repair-swiper-wrapper');
@@ -10,25 +10,28 @@ let swiper;
 
 const breakpointChecker = function() {
     // если окно больше 768
-    if ( breakpoint.matches === true || window.outerWidth >= 768) {
+    if (window.outerWidth >= 768) {
+
+      swiperWrapper.forEach(element => {
+        element.removeAttribute('style');
+        element.classList.remove('swiper-wrapper');
+      });
 
       swiperSlide.forEach(element => {
-        element.classList.remove('swiper-slide')
-      });
-      priceSlide.forEach(element => {
-        element.classList.remove('swiper-slide')
-      });
-      swiperWrapper.forEach(element => {
-        element.classList.remove('swiper-wrapper')
+        element.removeAttribute('style');
+        element.classList.remove('swiper-slide');
       });
 
-        // удаляем свайпер, если это возможно
-        if ( swiper !== undefined ) swiper.destroy( true, true );
-  
+      priceSlide.forEach(element => {
+        element.removeAttribute('style');
+        element.classList.remove('swiper-slide');
+      });
+        if ( swiper ) {
+          swiper = null;
+        } 
         return;
   
-        // else if a small viewport and single column layout needed
-        } else if ( breakpoint.matches === false || window.outerWidth < 768) {
+        } else if (window.outerWidth < 768) {
   
           swiperSlide.forEach(element => {
             element.classList.add('swiper-slide')
@@ -39,11 +42,12 @@ const breakpointChecker = function() {
           swiperWrapper.forEach(element => {
             element.classList.add('swiper-wrapper')
           });
-          // fire small viewport version of swiper
           return enableSwiper();
   
         }
 }
+
+
 
 const enableSwiper = function() {
 
@@ -55,6 +59,7 @@ const enableSwiper = function() {
         el: '.swiper-pagination',
         clickable: true,
       },
+      modules: [Pagination]
     });
 };
 
@@ -71,6 +76,13 @@ burger.addEventListener('click', () => {
   nav.classList.add('nav--js-active');
 })
 
+window.addEventListener('click', (e) => {
+  const target = e.target;
+  if (!target.closest('.nav') && !target.closest('.icon__burger')) {
+    nav.classList.remove('nav--js-active');
+  }
+});
+
 closeBurger.addEventListener('click', () => {
   nav.classList.remove('nav--js-active');
 })
@@ -85,18 +97,21 @@ let buttonLangIsActive = document.querySelector('.nav__lang--is-active');
 buttonRu.addEventListener('click', () => {
   buttonLangIsActive.classList.remove('nav__lang--is-active');
   buttonRu.classList.add('nav__lang--is-active');
+  buttonLangIsActive.disabled = false;
   buttonLangIsActive = buttonRu;
   buttonRu.disabled = true;
 });
 buttonEn.addEventListener('click', () => {
   buttonLangIsActive.classList.remove('nav__lang--is-active');
   buttonEn.classList.add('nav__lang--is-active');
+  buttonLangIsActive.disabled = false;
   buttonLangIsActive = buttonEn;
   buttonEn.disabled = true;
 });
 buttonCh.addEventListener('click', () => {
   buttonLangIsActive.classList.remove('nav__lang--is-active');
   buttonCh.classList.add('nav__lang--is-active');
+  buttonLangIsActive.disabled = false;
   buttonLangIsActive = buttonCh;
   buttonCh.disabled = true;
 });
@@ -150,7 +165,13 @@ function toggleMore (moreBuuton, reMoreButton) {
   });
 }
 
+
 buttonMoreText.addEventListener('click', () => {
+  if (infoText.style.height) {
+    infoText.style.height = null;
+  } else {
+    infoText.style.height = infoText.scrollHeight + "px";
+  }
   infoText.classList.toggle('info__text-active');
   toggleMore (moreText, moreReText);
 });
@@ -178,6 +199,8 @@ buttonMoreType.addEventListener('click', () => {
 });
 
 //Звонок
+
+const modalBackground = document.querySelector('.modal-background');
 const callButton = document.querySelectorAll('.icon__chat');
 const mobal = document.querySelector('.mobal');
 const mobalClose = document.querySelector('.mobal-close');
@@ -186,6 +209,7 @@ const mobalClose = document.querySelector('.mobal-close');
 for (let i = 0; i<callButton.length; i++) {
   let callButtonItem = callButton[i];
   callButtonItem.addEventListener('click', () => {
+    modalBackground.classList.toggle('modal-background--active');
     mobal.classList.toggle('mobal--active');
     nav.classList.remove('nav--js-active');
     mobalBack.classList.remove('mobal-call--active');
@@ -194,6 +218,7 @@ for (let i = 0; i<callButton.length; i++) {
 
 mobalClose.addEventListener('click', () => {
   mobal.classList.remove('mobal--active');
+  modalBackground.classList.remove('modal-background--active');
 });
 
 //Обратный звонок
@@ -205,6 +230,7 @@ const mobalCallClose = document.querySelector('.mobal-call-close');
 for (let i = 0; i<callBackButton.length; i++) {
   let callBackButtonItem = callBackButton[i];
   callBackButtonItem.addEventListener('click', () => {
+    modalBackground.classList.toggle('modal-background--active');
     mobalBack.classList.toggle('mobal-call--active');
     nav.classList.remove('nav--js-active');
     mobal.classList.remove('mobal--active');
@@ -213,5 +239,6 @@ for (let i = 0; i<callBackButton.length; i++) {
 
 mobalCallClose.addEventListener('click', () => {
   mobalBack.classList.remove('mobal-call--active');
+  modalBackground.classList.remove('modal-background--active');
 });
 

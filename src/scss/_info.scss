@@ -24,14 +24,13 @@
         }
     
         &__item {
+            margin: 0 1px;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 40px;
-            // width: 246px;
 
             h2 {
-                // margin: 0;
                 font-size: $f-size-main;
                 color: $gray-color;
                 font-weight: normal;
@@ -41,6 +40,7 @@
         }
     
         &__item--active {
+            margin: 0;
             border: 1px solid $nav-blur-color;
             border-radius: 6px;
         }
@@ -55,7 +55,7 @@
 
             padding-left: $indent-16;
             overflow: hidden;
-            height: 87px;
+            // height: 87px;
             margin: 0 0;
             font-size: 14px;
             line-height: 18px;
@@ -64,15 +64,18 @@
         }
 
         &__text-active {
-            height: 253px;
+            // height: 253px;
+            height: 87px;
         }
     
         &__img {
             display: flex;
             max-width: 100%;
+            min-height: 185px;
 
             img {
                 max-width: 100%;
+                object-fit: contain;
             }
         }
 
@@ -90,29 +93,34 @@
         }
 
         &__img {
-            min-width: 385px;
-            max-height: 222px;
+            min-width: 50%;
+            max-height: 20%;
+            
 
             img {
                 border-radius: 6px;
+                min-width: 100%;
             }
             
 
         }
 
         &__text {
-            height: 158px;
+            // height: 158px;
             margin-right: 40px;
             line-height: 20px;
         }
 
         &__text-active {
-            height: 237px;
+            height: 102px;
         }
     }
 
     @media (min-width: $w-scrin-1020) {
 
+        &__title {
+            margin-bottom: 36px;
+        }
         &__menu {
             overflow: visible;
             flex-wrap: wrap;
@@ -141,20 +149,22 @@
             max-height: 217px;
         }
 
-        &__text-active {
-            height: 320px;
-        }
+        // &__text-active {
+        //     height: 320px;
+        // }
     }
 
+    @media (min-width: $w-scrin-1366) {
+        // &__text-active {
+        //     height: 180px;
+        // }
+    }
 
+    // @media (min-width: $w-scrin-1440) {
+    //     &__img {
+    //         min-width: 385px;
+    //         max-height: 222px;
+    //     }
+    // }
 
-}
-    
-
-.icon-more {
-    margin-right: 16px;
-}
-
-.icon-r-more {
-    margin-right: 16px;
 }

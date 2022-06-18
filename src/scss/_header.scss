@@ -6,10 +6,12 @@
     background-color: $white-color;
     display: flex;
     align-items: center;
+    top: 0;
 
 
     @media (min-width: $w-scrin-320) {
         border-bottom: 1px solid #D9FFF5;
+        margin-bottom: $indent-24;
 
         .icon {
 

@@ -1,3 +1,4 @@
+@import url(c:\Users\panik\Desktop\work\1.6\node_modules\swiper\swiper-bundle.css);
 @font-face {
   font-family: 'TT Lakes';
   src: local("TT Lakes"), url("../fonts/TTLakes-Regular.woff") format("woff"), url("../fonts/TTLakes-Regular.ttf") format("ttf"), url("../fonts/TTLakes-Regular.eot") format("eot");
@@ -106,7 +107,7 @@ html {
 }
 
 .main {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 @media (min-width: 1020px) {
@@ -167,6 +168,11 @@ a:active {
   border-radius: 0 7px 7px 0;
   -webkit-transition: 1s;
   transition: 1s;
+}
+
+.icon-more,
+.icon-r-more {
+  margin-right: 16px;
 }
 
 .page-title {
@@ -394,11 +400,13 @@ a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  top: 0;
 }
 
 @media (min-width: 320px) {
   .header {
     border-bottom: 1px solid #D9FFF5;
+    margin-bottom: 24px;
   }
   .header .icon__repair {
     margin-left: 0;
@@ -537,6 +545,7 @@ a:active {
     display: flex;
   }
   .info__item {
+    margin: 0 1px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -556,6 +565,7 @@ a:active {
     padding: 6px 16px;
   }
   .info__item--active {
+    margin: 0;
     border: 1px solid #B8FFEC;
     border-radius: 6px;
   }
@@ -564,7 +574,6 @@ a:active {
     transition: .4s;
     padding-left: 16px;
     overflow: hidden;
-    height: 87px;
     margin: 0 0;
     font-size: 14px;
     line-height: 18px;
@@ -575,16 +584,19 @@ a:active {
     margin: 0;
   }
   .info__text-active {
-    height: 253px;
+    height: 87px;
   }
   .info__img {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     max-width: 100%;
+    min-height: 185px;
   }
   .info__img img {
     max-width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   .info .button-more {
     padding-left: 24px;
@@ -600,23 +612,26 @@ a:active {
     margin-bottom: 16px;
   }
   .info__img {
-    min-width: 385px;
-    max-height: 222px;
+    min-width: 50%;
+    max-height: 20%;
   }
   .info__img img {
     border-radius: 6px;
+    min-width: 100%;
   }
   .info__text {
-    height: 158px;
     margin-right: 40px;
     line-height: 20px;
   }
   .info__text-active {
-    height: 237px;
+    height: 102px;
   }
 }
 
 @media (min-width: 1020px) {
+  .info__title {
+    margin-bottom: 36px;
+  }
   .info__menu {
     overflow: visible;
     -ms-flex-wrap: wrap;
@@ -644,17 +659,6 @@ a:active {
     min-width: 375px;
     max-height: 217px;
   }
-  .info__text-active {
-    height: 320px;
-  }
-}
-
-.icon-more {
-  margin-right: 16px;
-}
-
-.icon-r-more {
-  margin-right: 16px;
 }
 
 @media (min-width: 320px) {
@@ -994,6 +998,22 @@ a:active {
   }
 }
 
+.modal-background {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #FFFFFF;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal-background--active {
+  z-index: 101;
+  opacity: 0.9;
+}
+
 .mobal {
   position: absolute;
   right: 0;
@@ -1034,7 +1054,7 @@ a:active {
 .mobal--active {
   position: fixed;
   opacity: 1;
-  z-index: 100;
+  z-index: 500;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -1071,10 +1091,15 @@ a:active {
   }
 }
 
+.mobal-call__massage {
+  resize: none;
+  height: 118px;
+}
+
 .mobal-call--active {
   position: fixed;
   opacity: 1;
-  z-index: 100;
+  z-index: 500;
   -webkit-transition: .4s;
   transition: .4s;
 }
