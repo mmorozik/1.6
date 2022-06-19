@@ -10,7 +10,7 @@ let swiper;
 
 const breakpointChecker = function() {
     // если окно больше 768
-    if (window.outerWidth >= 768) {
+    if (window.innerWidth >= 768) {
 
       swiperWrapper.forEach(element => {
         element.removeAttribute('style');
@@ -31,7 +31,7 @@ const breakpointChecker = function() {
         } 
         return;
   
-        } else if (window.outerWidth < 768) {
+        } else if (window.innerWidth < 768) {
   
           swiperSlide.forEach(element => {
             element.classList.add('swiper-slide')
